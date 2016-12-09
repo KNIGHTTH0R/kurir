@@ -15,7 +15,7 @@ require('laravel-elixir-vue-2');
 
 var bowerPath = './bower_components/';
 var vendorJsFile = 'public/js/vendor.js';
-var vendorCssFile = 'public/js/vendor.css';
+var vendorCssFile = 'public/css/vendor.css';
 
 elixir((mix) => {
 
@@ -24,24 +24,30 @@ elixir((mix) => {
         'app.css'
     ], vendorCssFile);
 
-    mix.styles(['./' + vendorCssFile, 'login.css'], 'public/css/login.css')
-    .styles(['./' + vendorCssFile, 'register.css'], 'public/css/register.css')
-    .styles(['./' + vendorCssFile, 'dashboard.css'], 'public/css/dashboard.css');
-
     mix.scripts([
         bowerPath + 'jquery/dist/jquery.js',
         bowerPath + 'bootstrap/dist/js/bootstrap.js',
         'app.js'
     ], vendorJsFile);
 
-    mix.scripts(['./' + vendorJsFile, 'login.js'], 'public/js/login.js')
-    .scripts(['./' + vendorJsFile, 'register.js'], 'public/js/register.js')
-    .scripts(['./' + vendorJsFile, 'dashboard.js'], 'public/js/dashboard.js');
+    mix.styles(['login.css'], 'public/css/login.css')
+    .styles(['home.css'], 'public/css/home.css')
+    .styles(['register.css'], 'public/css/register.css')
+    .styles(['dashboard.css'], 'public/css/dashboard.css');
+
+
+
+    mix.scripts(['login.js'], 'public/js/login.js')
+    mix.scripts(['home.js'], 'public/js/home.js')
+    .scripts(['register.js'], 'public/js/register.js')
+    .scripts(['dashboard.js'], 'public/js/dashboard.js');
 
     mix.version([
+        'css/vendor.css',
         'css/login.css',
         'css/register.css',
         'css/dashboard.css',
+        'js/vendor.js',
         'js/login.js',
         'js/register.js',
         'js/dashboard.js',

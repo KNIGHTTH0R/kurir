@@ -1,8 +1,10 @@
 {
-  "css/dashboard.css": "css/dashboard-defdb8edc9.css",
-  "css/login.css": "css/login-36f2ca0dc4.css",
-  "css/register.css": "css/register-e89fb60eba.css",
-  "js/dashboard.js": "js/dashboard-786ee99c05.js",
-  "js/login.js": "js/login-f9b6117e05.js",
-  "js/register.js": "js/register-35df6ae10c.js"
+  "css/dashboard.css": "css/dashboard-d3312b362f.css",
+  "css/login.css": "css/login-a8cb2175e0.css",
+  "css/register.css": "css/register-7f9b80a250.css",
+  "css/vendor.css": "css/vendor-2e111833fe.css",
+  "js/dashboard.js": "js/dashboard-af4d95c853.js",
+  "js/login.js": "js/login-e07ad04263.js",
+  "js/register.js": "js/register-155037efff.js",
+  "js/vendor.js": "js/vendor-89d6a4679b.js"
 }

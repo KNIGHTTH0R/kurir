@@ -12599,14 +12599,3 @@ if (typeof jQuery === 'undefined') {
 
 
 //# sourceMappingURL=vendor.js.map
-
-var login = {
-    init : function () {
-
-    }
-};
-
-$(function(){
-    login.init();
-});
-//# sourceMappingURL=login.js.map

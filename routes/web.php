@@ -11,6 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+# public
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('/masuk', ['as' => 'user.index', 'uses' => 'UserController@index']);
+Route::post('/masuk', ['as' => 'user.index', 'uses' => 'UserController@auth']);
+Route::get('/daftar', ['as' => 'register', 'uses' => 'UserController@register']);
+Route::resource('user', 'UserController', ['only' => [
+    'store'
+]]);
+
+# Logged
+Route::group(['middleware' => ['\App\Http\Middleware\LoggedMiddleware']], function () {
+    # logout
+    Route::get('/keluar', function(){
+        \PluginHttpClient\TokenSession::getInstance()->logout();
+        return redirect()->route('home');
+    })->name('logout');
+
+    # dashboard
+    Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 });
