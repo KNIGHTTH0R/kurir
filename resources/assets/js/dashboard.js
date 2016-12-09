@@ -1,5 +1,6 @@
 var dashboard = {
     idButtonPickup : '#buttonpickupItem',
+    idButtonDelivered : '#buttonDelivered',
     idAlertDashboard : '#alertDashboard',
     idAlertDashboardMessage : '#alertDashboardMessage',
     init : function () {
@@ -15,23 +16,37 @@ var dashboard = {
                 {
                     'id' : $(this).attr('data-id-item')
                 },
-                dashboard.callbackPickupBeforeSend,
-                dashboard.callbackPickupError,
-                dashboard.callbackPickupSuccess
+                dashboard.callbackButtonClickBeforeSend,
+                dashboard.callbackButtonClickError,
+                dashboard.callbackButtonClickSuccess
+            );
+        });
+
+        $(document).on('click', dashboard.idButtonDelivered, function(e){
+            e.preventDefault();
+            app.ajax(
+                $(this),
+                BASE_URL + '/dashboard/item/delivered', 'POST',
+                {
+                    'id' : $(this).attr('data-id-item')
+                },
+                dashboard.callbackButtonClickBeforeSend,
+                dashboard.callbackButtonClickError,
+                dashboard.callbackButtonClickSuccess
             );
         });
     },
-    callbackPickupBeforeSend : function(_this) {
+    callbackButtonClickBeforeSend : function(_this) {
         _this.button('loading');
         $(dashboard.idAlertDashboard).hide();
     },
-    callbackPickupError : function(response, _this) {
+    callbackButtonClickError : function(response, _this) {
         _this.button('reset');
         $(dashboard.idAlertDashboardMessage).html(app.messageToList(response.error.message));
         $(dashboard.idAlertDashboard).show();
         console.log(response);
     },
-    callbackPickupSuccess : function(response, _this) {
+    callbackButtonClickSuccess : function(response, _this) {
         _this.button('reset');
         $(dashboard.idAlertDashboard).hide();
         window.location = BASE_URL + '/dashboard';

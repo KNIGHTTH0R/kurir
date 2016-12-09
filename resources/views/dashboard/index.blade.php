@@ -41,12 +41,12 @@
                         @if (in_array($userType, ['customer', 'admin']) && $item['status'] === 'new')
                             <span class="text-primary">menunggu kurir</span>
                         @elseif ($userType === 'kurir' && $item['status'] === 'new')
-                            <button type="button" class="btn btn-primary" id="buttonpickupItem" data-id-item="{{ $item['id'] }}">pickup</button>
+                            <button type="button" class="btn btn-primary" id="buttonpickupItem" data-id-item="{{ $item['id'] }}" data-loading-text="Loading...">pickup</button>
                         @elseif (in_array($userType, ['customer', 'admin']) && $item['status'] === 'on_progress')
                             <span class="text-warning">dalam proses pengiriman</span>
                         @elseif ($userType === 'kurir' && $item['status'] === 'on_progress')
                             <span class="text-warning">dalam proses</span>
-                            <button type="button" class="btn btn-success" data-loading-text="Loading...">selesai</button>
+                            <button type="button" class="btn btn-success" id="buttonDelivered" data-id-item="{{ $item['id'] }}" data-loading-text="Loading...">selesai</button>
                         @elseif (in_array($userType, ['customer', 'admin']) && $item['status'] === 'sent')
                             <span class="text-success">terkirim</span>
                         @elseif ($userType === 'kurir' && $item['status'] === 'sent')

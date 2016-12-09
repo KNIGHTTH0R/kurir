@@ -31,6 +31,7 @@ class DashboardController extends Controller
     }
 
     /**
+     * @param Request $request
      * @param Client $client
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
@@ -39,6 +40,28 @@ class DashboardController extends Controller
         $response = $client->put('items/' . $request->id, [
             'item' => [
                 'status' => 'on_progress'
+            ]
+        ]);
+
+        return response(
+            $response,
+            $client->getStatusCode(),
+            [
+                'Content-Type' => 'application/json'
+            ]
+        );
+    }
+
+    /**
+     * @param Request $request
+     * @param Client $client
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function delivered(Request $request, Client $client)
+    {
+        $response = $client->put('items/' . $request->id, [
+            'item' => [
+                'status' => 'sent'
             ]
         ]);
 
