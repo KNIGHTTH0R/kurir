@@ -4,8 +4,9 @@
     "window",
     "_",
     "Promise",
-    "xt_med",
-    "xtcustom"
+    "document",
+    "BASE_URL",
+    "app"
   ],
   "curly": false,
   "eqeqeq": true,

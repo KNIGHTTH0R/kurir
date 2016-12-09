@@ -1,6 +1,6 @@
 const elixir = require('laravel-elixir');
 
-require('laravel-elixir-vue-2');
+require( 'elixir-jshint' );
 
 /*
  |--------------------------------------------------------------------------
@@ -18,6 +18,8 @@ var vendorJsFile = 'public/js/vendor.js';
 var vendorCssFile = 'public/css/vendor.css';
 
 elixir((mix) => {
+
+    mix.jshint();
 
     mix.styles([
         bowerPath + 'bootstrap/dist/css/bootstrap.css',
