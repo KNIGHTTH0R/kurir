@@ -13,7 +13,7 @@
 
 # public
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::get('/masuk', ['as' => 'user.index', 'uses' => 'UserController@index']);
+Route::get('/masuk', ['as' => 'login', 'uses' => 'UserController@index']);
 Route::post('/masuk', ['as' => 'user.index', 'uses' => 'UserController@auth']);
 Route::get('/daftar', ['as' => 'register', 'uses' => 'UserController@register']);
 Route::resource('user', 'UserController', ['only' => [

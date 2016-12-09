@@ -182,6 +182,7 @@ return [
          * Kurir Service Providers...
          */
         App\Providers\LayoutProvider::class,
+        App\Providers\HttpClientProvider::class,
 
     ],
 
@@ -233,4 +234,15 @@ return [
 
     ],
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Api Url
+    |--------------------------------------------------------------------------
+    |
+    |
+    | Path for build number json file
+    |
+    */
+    'api_url' => env('API_URL', 'http://localhost:8000/api'),
 ];

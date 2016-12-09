@@ -3,6 +3,7 @@ namespace App\Libraries;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use PluginHttpClient\TokenSession;
 
 class LayoutManager
 {
@@ -38,6 +39,7 @@ class LayoutManager
     public function initialize(){
         $this->setData('route_name', Route::getCurrentRoute()->getName())
             ->setData('base_url', config('app.url'))
+            ->setData('isLogged', TokenSession::getInstance()->isLogin() ? 1 : 0)
             ->setData($this->getSeoData($this->getData('route_name')));
     }
 

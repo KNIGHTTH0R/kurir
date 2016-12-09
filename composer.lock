@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10cbb730811773c546e677e6d93675ac",
-    "content-hash": "f96ff883e7393640230a7cce58267414",
+    "hash": "76ec5fd4554303e2cb8dfc1f8670426b",
+    "content-hash": "adb66cf6add49945f88d8c552c88f751",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -338,12 +338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harryosmar/plugin-http-client.git",
-                "reference": "0ea7a0e579c54657a45705598c3199673377b6a7"
+                "reference": "944e40096f7ad8cbf9cebe6a178d2f00049c2eb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harryosmar/plugin-http-client/zipball/0ea7a0e579c54657a45705598c3199673377b6a7",
-                "reference": "0ea7a0e579c54657a45705598c3199673377b6a7",
+                "url": "https://api.github.com/repos/harryosmar/plugin-http-client/zipball/944e40096f7ad8cbf9cebe6a178d2f00049c2eb7",
+                "reference": "944e40096f7ad8cbf9cebe6a178d2f00049c2eb7",
                 "shasum": ""
             },
             "require": {
@@ -383,7 +383,64 @@
                 "source": "https://github.com/harryosmar/plugin-http-client/tree/kurir",
                 "issues": "https://github.com/harryosmar/plugin-http-client/issues"
             },
-            "time": "2016-12-09 05:05:45"
+            "time": "2016-12-09 07:47:01"
+        },
+        {
+            "name": "harryosmar/plugin-kurir-common",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/harryosmar/plugin-kurir-common.git",
+                "reference": "af7e982d5a6cac2a9557f5f100111aabb9f2b8d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/harryosmar/plugin-kurir-common/zipball/af7e982d5a6cac2a9557f5f100111aabb9f2b8d4",
+                "reference": "af7e982d5a6cac2a9557f5f100111aabb9f2b8d4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": []
+            },
+            "autoload": {
+                "psr-4": {
+                    "PluginCommonKurir\\": "src/"
+                },
+                "files": [
+                    "src/Helper/functions_include.php"
+                ]
+            },
+            "autoload-dev": {
+                "files": [
+                    "tests/plugin-kurir-common/BaseTest.php"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "harry osmar sitohang",
+                    "email": "harryosmarsitohang@gmail.com",
+                    "homepage": "https://github.com/harryosmar"
+                }
+            ],
+            "description": "PHP Composer Plugin contain common libraries/helper for Kurir Site",
+            "homepage": "https://github.com/harryosmar/plugin-kurir-common",
+            "keywords": [
+                "helper",
+                "libaries"
+            ],
+            "support": {
+                "source": "https://github.com/harryosmar/plugin-kurir-common/tree/master",
+                "issues": "https://github.com/harryosmar/plugin-kurir-common/issues"
+            },
+            "time": "2016-12-07 01:42:46"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -3774,6 +3831,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "harryosmar/plugin-kurir-common": 20,
         "harryosmar/plugin-http-client": 20
     },
     "prefer-stable": false,

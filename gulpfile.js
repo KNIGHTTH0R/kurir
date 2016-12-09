@@ -30,10 +30,10 @@ elixir((mix) => {
         'app.js'
     ], vendorJsFile);
 
-    mix.styles(['login.css'], 'public/css/login.css')
-    .styles(['home.css'], 'public/css/home.css')
+    mix.styles(['component/signin.css', 'login.css'], 'public/css/login.css')
+    .styles(['component/navbar-fixed-top.css', 'home.css'], 'public/css/home.css')
     .styles(['register.css'], 'public/css/register.css')
-    .styles(['dashboard.css'], 'public/css/dashboard.css');
+    .styles(['component/navbar-fixed-top.css', 'dashboard.css'], 'public/css/dashboard.css');
 
 
 

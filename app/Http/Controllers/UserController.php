@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Libraries\LayoutManager;
 use Illuminate\Http\Request;
+use PluginCommonKurir\Libraries\ApiClient;
+use PluginHttpClient\Client;
 
 class UserController extends Controller
 {
@@ -11,9 +14,21 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(LayoutManager $layoutManager)
     {
-        //
+        return view('login.index', $layoutManager->getData());
+    }
+
+    public function auth(Client $client, Request $request)
+    {
+        $response = $client->post('auth/token/password', [
+            'client_id' => ApiClient::CLIENT_ID,
+            'secret_code' => ApiClient::SECRET_CODE,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+
+        return response($response)->setStatusCode($client->getStatusCode());
     }
 
     /**
