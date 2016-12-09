@@ -26,7 +26,7 @@ class DashboardController extends Controller
                 'filter' => $userType === 'admin' ? null : 'of' . ucfirst($userType) . ':' . $userId
             ])
         ), true);
-        $layoutManager->setData('items', $items['data']);
+        $layoutManager->setData('items', isset($items['data']) ? $items['data'] : []);
         return view('dashboard.index', $layoutManager->getData());
     }
 
