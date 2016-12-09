@@ -33,7 +33,18 @@
                     <td>{{ @$item['kurir']['name'] }}</td>
                     <td>{{ $item['address']['pickup'] }}pickup</td>
                     <td>{{ $item['address']['destination'] }}Pengiriman</td>
-                    <td>{{ $item['status'] }}</td>
+                    <td>
+                        @if ($userType === 'kurir' && $item['status'] === 'new')
+                            <button type="button" class="btn btn-primary">pickup</button>
+                        @elseif ($userType === 'kurir' && $item['status'] === 'on_progress')
+                            <span class="text-warning">dalam proses</span>
+                            <button type="button" class="btn btn-success">selesai</button>
+                        @elseif ($userType === 'kurir' && $item['status'] === 'sent')
+                            <span class="text-success">selesai</span>
+                        @else
+                            {{ $item['status'] }}
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </tbody>

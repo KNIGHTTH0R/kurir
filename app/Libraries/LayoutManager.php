@@ -40,6 +40,7 @@ class LayoutManager
         $this->setData('route_name', Route::getCurrentRoute()->getName())
             ->setData('base_url', config('app.url'))
             ->setData('isLogged', TokenSession::getInstance()->isLogin() ? 1 : 0)
+            ->setData('userType', TokenSession::getInstance()->getUserType())
             ->setData($this->getSeoData($this->getData('route_name')));
     }
 

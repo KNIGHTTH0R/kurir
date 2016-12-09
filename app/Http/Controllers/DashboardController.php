@@ -23,7 +23,7 @@ class DashboardController extends Controller
             'items',
             array_filter([
                 'includes' => 'customer,kurir',
-                'filter' => $userType === 'admin' ? null : 'of' . ucfirst($userType) . ':' . $userId
+                'filter' => in_array($userType, ['admin', 'kurir']) ? null : 'of' . ucfirst($userType) . ':' . $userId
             ])
         ), true);
         $layoutManager->setData('items', isset($items['data']) ? $items['data'] : []);
