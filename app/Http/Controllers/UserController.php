@@ -28,7 +28,14 @@ class UserController extends Controller
             'password' => $request->password,
         ]);
 
-        return response($response)->setStatusCode($client->getStatusCode());
+
+        return response(
+            $response,
+            $client->getStatusCode(),
+            [
+                'Content-Type' => 'application/json'
+            ]
+        );
     }
 
     /**
