@@ -1,0 +1,27 @@
+{
+  "name": "kurir",
+  "description": "assets dependencies kurir",
+  "main": "",
+  "authors": [
+    "Harry Sitohang <harryosmarsitohang@gmail.com>"
+  ],
+  "license": "-",
+  "keywords": [
+    "assets",
+    "js",
+    "css",
+    "image"
+  ],
+  "homepage": "https://github.com/harryosmar/kurir",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
