@@ -25,7 +25,7 @@ Generating autoload files
 > php artisan optimize
 Generating optimized class loader
 ```
-Then start your web server : php artisan serve
+Then start your web server
 ```
 $ php artisan serve
 Laravel development server started on http://localhost:8000/
