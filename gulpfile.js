@@ -35,14 +35,26 @@ elixir((mix) => {
     mix.styles(['component/signin.css', 'login.css'], 'public/css/login.css')
     .styles(['component/navbar-fixed-top.css', 'home.css'], 'public/css/home.css')
     .styles(['register.css'], 'public/css/register.css')
-    .styles(['component/navbar-fixed-top.css', 'dashboard.css'], 'public/css/dashboard.css');
+    .styles([
+        bowerPath + 'datatables.net-dt/css/jquery.dataTables.css',
+        bowerPath + 'datatables.net-bs/css/dataTables.bootstrap.css',
+        'component/navbar-fixed-top.css',
+        'dashboard.css'
+    ], 'public/css/dashboard.css');
 
 
 
     mix.scripts(['login.js'], 'public/js/login.js')
     mix.scripts(['home.js'], 'public/js/home.js')
     .scripts(['register.js'], 'public/js/register.js')
-    .scripts(['dashboard.js'], 'public/js/dashboard.js');
+    .scripts([
+        bowerPath + 'datatables.net/js/jquery.dataTables.js',
+        bowerPath + 'datatables.net-bs/js/dataTables.bootstrap.js',
+        'dashboard.js'
+    ], 'public/js/dashboard.js');
+
+    mix.copy(bowerPath + 'bootstrap/fonts', 'public/build/fonts');
+    mix.copy(bowerPath + 'datatables.net-dt/images', 'public/build/images');
 
     mix.version([
         'css/vendor.css',

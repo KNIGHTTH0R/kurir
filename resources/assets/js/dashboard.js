@@ -1,6 +1,6 @@
 var dashboard = {
     init : function () {
-
+        $('#example').DataTable();
     }
 };
 

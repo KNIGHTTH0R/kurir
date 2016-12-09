@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Libraries\LayoutManager;
 use Illuminate\Http\Request;
+use PluginHttpClient\Client;
+use PluginHttpClient\TokenSession;
 
 class DashboardController extends Controller
 {
@@ -11,9 +14,20 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(LayoutManager $layoutManager, Client $client)
     {
-        //
+        $userId = TokenSession::getInstance()->getUserID();
+        $userType = TokenSession::getInstance()->getUserType();
+
+        $items = json_decode($client->get(
+            'items',
+            array_filter([
+                'includes' => 'customer,kurir',
+                'filter' => $userType === 'admin' ? null : 'of' . ucfirst($userType) . ':' . $userId
+            ])
+        ), true);
+        $layoutManager->setData('items', $items['data']);
+        return view('dashboard.index', $layoutManager->getData());
     }
 
     /**
