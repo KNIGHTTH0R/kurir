@@ -31,3 +31,7 @@ Route::group(['middleware' => ['\App\Http\Middleware\LoggedMiddleware']], functi
     # dashboard
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 });
+
+Route::group(['middleware' => ['\App\Http\Middleware\LoggedMiddleware']], function () {
+    Route::post('/dashboard/item/pickup', ['as' => 'dashboard', 'uses' => 'DashboardController@pickup']);
+});

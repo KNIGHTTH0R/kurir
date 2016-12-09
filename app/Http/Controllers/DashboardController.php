@@ -31,6 +31,27 @@ class DashboardController extends Controller
     }
 
     /**
+     * @param Client $client
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function pickup(Request $request, Client $client)
+    {
+        $response = $client->put('items/' . $request->id, [
+            'item' => [
+                'status' => 'on_progress'
+            ]
+        ]);
+
+        return response(
+            $response,
+            $client->getStatusCode(),
+            [
+                'Content-Type' => 'application/json'
+            ]
+        );
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

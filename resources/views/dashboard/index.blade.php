@@ -1,6 +1,10 @@
 @extends('layout.main')
 
 @section('content')
+    <div id="alertDashboard" class="alert alert-danger" role=alert style="display: none;">
+        <h4>Oh snap! You got an error!</h4>
+        <p id="alertDashboardMessage"></p>
+    </div>
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -34,11 +38,17 @@
                     <td>{{ $item['address']['pickup'] }}pickup</td>
                     <td>{{ $item['address']['destination'] }}Pengiriman</td>
                     <td>
-                        @if ($userType === 'kurir' && $item['status'] === 'new')
-                            <button type="button" class="btn btn-primary">pickup</button>
+                        @if (in_array($userType, ['customer', 'admin']) && $item['status'] === 'new')
+                            <span class="text-primary">menunggu kurir</span>
+                        @elseif ($userType === 'kurir' && $item['status'] === 'new')
+                            <button type="button" class="btn btn-primary" id="buttonpickupItem" data-id-item="{{ $item['id'] }}">pickup</button>
+                        @elseif (in_array($userType, ['customer', 'admin']) && $item['status'] === 'on_progress')
+                            <span class="text-warning">dalam proses pengiriman</span>
                         @elseif ($userType === 'kurir' && $item['status'] === 'on_progress')
                             <span class="text-warning">dalam proses</span>
-                            <button type="button" class="btn btn-success">selesai</button>
+                            <button type="button" class="btn btn-success" data-loading-text="Loading...">selesai</button>
+                        @elseif (in_array($userType, ['customer', 'admin']) && $item['status'] === 'sent')
+                            <span class="text-success">terkirim</span>
                         @elseif ($userType === 'kurir' && $item['status'] === 'sent')
                             <span class="text-success">selesai</span>
                         @else

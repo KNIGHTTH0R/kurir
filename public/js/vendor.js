@@ -12598,7 +12598,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 var app = {
-    ajax : function (url, type, data, callbackBeforeSend, callbackError, callbackSuccess, async) {
+    ajax : function (elm, url, type, data, callbackBeforeSend, callbackError, callbackSuccess, async) {
         async = typeof async === 'undefined' ? true : Boolean(async);
         $.ajax({
             url: url,
@@ -12608,17 +12608,17 @@ var app = {
             async: async,
             beforeSend: function () {
                 if (callbackBeforeSend != null) {
-                    callbackBeforeSend();
+                    callbackBeforeSend(elm);
                 }
             },
             error: function (request) {
                 if (callbackError != null){
-                    callbackError(request.responseJSON);
+                    callbackError(request.responseJSON, elm);
                 }
             },
             success: function (json) {
                 if (callbackSuccess != null) {
-                    callbackSuccess(json);
+                    callbackSuccess(json, elm);
                 }
             }
         });

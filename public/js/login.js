@@ -6,6 +6,7 @@ var login = {
         $(document).on('submit', '#form-signin', function(e){
             e.preventDefault();
             app.ajax(
+                $(this),
                 BASE_URL + '/masuk', 'POST',
                 $(this).serialize(),
                 login.callbackBeforeSend,
