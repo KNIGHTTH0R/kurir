@@ -1,10 +1,18 @@
 @extends('layout.main')
 
+
+
 @section('content')
+    @include('dashboard.modal')
     <div id="alertDashboard" class="alert alert-danger" role=alert style="display: none;">
         <h4>Oh snap! You got an error!</h4>
         <p id="alertDashboardMessage"></p>
     </div>
+    @if ($userType === 'customer')
+        <button type="button" class="btn btn-primary btn-lg active" data-toggle="modal" data-target="#myModal" style="margin-bottom: 20px;">
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>  barang
+        </button>
+    @endif
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>

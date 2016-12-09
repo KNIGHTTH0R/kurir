@@ -87,12 +87,21 @@ class DashboardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param Client $client
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Client $client)
     {
-        //
+        $response = $client->post('items', $request->all());
+
+        return response(
+            $response,
+            $client->getStatusCode(),
+            [
+                'Content-Type' => 'application/json'
+            ]
+        );
     }
 
     /**

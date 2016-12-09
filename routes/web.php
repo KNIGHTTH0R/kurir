@@ -35,4 +35,5 @@ Route::group(['middleware' => ['\App\Http\Middleware\LoggedMiddleware']], functi
 Route::group(['middleware' => ['\App\Http\Middleware\LoggedMiddleware']], function () {
     Route::post('/dashboard/item/pickup', ['as' => 'dashboard', 'uses' => 'DashboardController@pickup']);
     Route::post('/dashboard/item/delivered', ['as' => 'dashboard', 'uses' => 'DashboardController@delivered']);
+    Route::post('/dashboard/item/store', ['as' => 'dashboard', 'uses' => 'DashboardController@store']);
 });

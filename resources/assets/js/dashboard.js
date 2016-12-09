@@ -1,8 +1,12 @@
 var dashboard = {
     idButtonPickup : '#buttonpickupItem',
     idButtonDelivered : '#buttonDelivered',
+    idButtonAddItem : '#buttonAddItem',
     idAlertDashboard : '#alertDashboard',
     idAlertDashboardMessage : '#alertDashboardMessage',
+    idFormAddItem : '#formAddItem',
+    idAlertAdding : '#alertAdding',
+    idAlertAddingMessage : '#alertAddingMessage',
     init : function () {
         $('#example').DataTable({
             stateSave: true
@@ -35,6 +39,34 @@ var dashboard = {
                 dashboard.callbackButtonClickSuccess
             );
         });
+
+        $(document).on('submit', dashboard.idFormAddItem, function(e){
+            e.preventDefault();
+            app.ajax(
+                $(this),
+                BASE_URL + '/dashboard/item/store', 'POST',
+                $(this).serialize(),
+                dashboard.callbackSubmitFormAddBeforeSend,
+                dashboard.callbackSubmitFormAddError,
+                dashboard.callbackSubmitFormAddSuccess
+            );
+        });
+    },
+    callbackSubmitFormAddBeforeSend : function() {
+        $(dashboard.idButtonAddItem).button('loading');
+        $(dashboard.idAlertAdding).hide();
+    },
+    callbackSubmitFormAddError : function(response) {
+        $(dashboard.idButtonAddItem).button('reset');
+        $(dashboard.idAlertAddingMessage).html(app.messageToList(response.error.message));
+        $(dashboard.idAlertAdding).show();
+        console.log(response);
+    },
+    callbackSubmitFormAddSuccess : function(response) {
+        $(dashboard.idButtonAddItem).button('reset');
+        $(dashboard.idAlertAdding).hide();
+        window.location = BASE_URL + '/dashboard';
+        console.log(response);
     },
     callbackButtonClickBeforeSend : function(_this) {
         _this.button('loading');
