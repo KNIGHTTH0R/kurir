@@ -398,12 +398,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harryosmar/plugin-http-client.git",
-                "reference": "a17375e0ffa81531923d945497cae7119449c513"
+                "reference": "bf6e257c0c2c589d9a315e137264aed87f4f6abc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harryosmar/plugin-http-client/zipball/a17375e0ffa81531923d945497cae7119449c513",
-                "reference": "a17375e0ffa81531923d945497cae7119449c513",
+                "url": "https://api.github.com/repos/harryosmar/plugin-http-client/zipball/bf6e257c0c2c589d9a315e137264aed87f4f6abc",
+                "reference": "bf6e257c0c2c589d9a315e137264aed87f4f6abc",
                 "shasum": ""
             },
             "require": {
@@ -443,7 +443,7 @@
                 "source": "https://github.com/harryosmar/plugin-http-client/tree/kurir",
                 "issues": "https://github.com/harryosmar/plugin-http-client/issues"
             },
-            "time": "2016-12-09 08:35:39"
+            "time": "2016-12-09 13:49:59"
         },
         {
             "name": "harryosmar/plugin-kurir-common",
