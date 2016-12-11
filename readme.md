@@ -3,7 +3,9 @@
 Frontend Web for kurir frontend website
 
 ## Express Installation
-Pre-requirement : install virtualbox & vagrant
+Pre-requirement : install [virtualbox](https://www.virtualbox.org/) & [vagrant](https://www.vagrantup.com/) 
+
+This will automatically build your front & api, include migrate the database too.
 
 1.  `git clone -b kurir --single-branch https://github.com/harryosmar/trusty64-lamp.git`
 2.  `cd trusty64-lamp && vagrant up --provision`
