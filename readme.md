@@ -7,7 +7,7 @@ Pre-requirement : install [virtualbox](https://www.virtualbox.org/) & [vagrant](
 
 This will automatically build your front & api, include migrate the database too.
 
-1.  `git clone -b kurir --single-branch https://github.com/harryosmar/trusty64-lamp.git`
+1.  `git clone -b kurir --single-branch https://github.com/harryosmar/trusty64-lamp.git` use `kurir` branch <https://github.com/harryosmar/trusty64-lamp/tree/kurir>
 2.  `cd trusty64-lamp && vagrant up --provision`
 3.  configure your `hosts`, add this line `192.168.33.106 kurir.dev api.kurir.dev`
 4.  open <http://kurir.dev> in your browser
