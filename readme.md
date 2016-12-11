@@ -10,7 +10,7 @@ This will automatically prepare-build your `front` & `api`.
 1.  `git clone -b kurir --single-branch https://github.com/harryosmar/trusty64-lamp.git` use `kurir` branch <https://github.com/harryosmar/trusty64-lamp/tree/kurir>
 2.  `cd trusty64-lamp && vagrant up --provision`
 3.  configure your `hosts`, add this line `192.168.33.106 kurir.dev api.kurir.dev`
-4.  open <http://kurir.dev>, <http://kurir.dev> in your browser
+4.  open <http://kurir.dev>, <http://api.kurir.dev> in your browser
 5.  done, you are ready to go
 
 ## Manual Installation
