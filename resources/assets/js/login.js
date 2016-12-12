@@ -2,6 +2,7 @@ var login = {
     idSubmitButton : '#signinSubmitButton',
     idAlertSignin : '#alertSignin',
     idAlertSigninMessage : '#alertSigninMessage',
+    idAlertSucessRegister : '#alertSuccessRegister',
     init : function () {
         $(document).on('submit', '#form-signin', function(e){
             e.preventDefault();
@@ -20,6 +21,7 @@ var login = {
         $(login.idAlertSignin).hide();
     },
     callbackError : function(response) {
+        $(login.idAlertSucessRegister).remove();
         $(login.idSubmitButton).button('reset');
         $(login.idAlertSigninMessage).html(app.messageToList(response.error.message));
         $(login.idAlertSignin).show();

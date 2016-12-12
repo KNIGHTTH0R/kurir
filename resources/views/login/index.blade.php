@@ -9,6 +9,12 @@
             <h4>Oh snap! You got an error!</h4>
             <p id="alertSigninMessage"></p>
         </div>
+        @if ($request->register == 1)
+            <div id="alertSuccessRegister" class="alert alert-success" role=alert>
+                <h4>Congratulations!</h4>
+                <p>You are officially registered as a member, you can continue to login now</p>
+            </div>
+        @endif
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>

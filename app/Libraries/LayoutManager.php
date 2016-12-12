@@ -15,11 +15,17 @@ class LayoutManager
     private $data = [];
 
     /**
+     * @var Request
+     */
+    private $request;
+
+    /**
      * LayoutManager constructor.
      * @param Request|null $request
      */
-    private function __construct(Request $request = null)
+    private function __construct(Request $request)
     {
+        $this->request = $request;
         $this->initialize();
     }
 
@@ -41,6 +47,7 @@ class LayoutManager
             ->setData('base_url', config('app.url'))
             ->setData('isLogged', TokenSession::getInstance()->isLogin() ? 1 : 0)
             ->setData('userType', TokenSession::getInstance()->getUserType())
+            ->setData('request', $this->request)
             ->setData($this->getSeoData($this->getData('route_name')));
     }
 
