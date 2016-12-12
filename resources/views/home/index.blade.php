@@ -6,7 +6,7 @@
         <div class="clearfix">
             <div class="col-lg-4 col-md-12">
                 <h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Place</h4>
-                <p>Place your item by customer</p>
+                <p>Place your item as customer</p>
             </div>
             <div class="col-lg-4 col-md-12">
                 <h4><span class="glyphicon glyphicon-hand-down" aria-hidden="true"></span> Pickup</h4>
