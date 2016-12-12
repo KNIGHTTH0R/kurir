@@ -3,13 +3,14 @@
 
 
 @section('content')
-    @include('dashboard.modal')
+    @include('dashboard.add_item_modal')
+    @include('dashboard.profile_modal')
     <div id="alertDashboard" class="alert alert-danger" role=alert style="display: none;">
         <h4>Oh snap! You got an error!</h4>
         <p id="alertDashboardMessage"></p>
     </div>
     @if ($userType === 'customer')
-        <button type="button" class="btn btn-primary btn-lg active" data-toggle="modal" data-target="#myModal" style="margin-bottom: 20px;">
+        <button type="button" class="btn btn-primary btn-lg active" data-toggle="modal" data-target="#addItemModal" style="margin-bottom: 20px;">
             <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>  barang
         </button>
     @endif
@@ -40,9 +41,17 @@
             @foreach($items as $item)
                 <tr>
                     <td>{{ $item['item_name'] }}</td>
-                    <td>{{ $item['sender']['name'] }}</td>
-                    <td>{{ $item['receiver']['name'] }}</td>
-                    <td>{{ @$item['kurir']['name'] }}</td>
+                    <td>
+                        <a data-name="showProfile" data-user-id="{{ $item['sender']['id'] }}" href="javascript:;" data-toggle="modal" data-target="#profileModal" >{{ $item['sender']['name'] }}</a>
+                    </td>
+                    <td>
+                        <a data-name="showProfileReceiver" data-user-telp="{{ $item['receiver']['phone_number'] }}" data-user-name="{{ $item['receiver']['name'] }}" href="javascript:;" data-toggle="modal" data-target="#profileModal" >{{ $item['receiver']['name'] }}</a>
+                    </td>
+                    <td>
+                        @if (isset($item['kurir']['name']))
+                            <a data-name="showProfile" data-user-id="{{ $item['kurir']['id'] }}" href="javascript:;" data-toggle="modal" data-target="#profileModal" >{{ $item['kurir']['name'] }}</a>
+                        @endif
+                    </td>
                     <td>{{ $item['address']['pickup'] }}pickup</td>
                     <td>{{ $item['address']['destination'] }}Pengiriman</td>
                     <td>

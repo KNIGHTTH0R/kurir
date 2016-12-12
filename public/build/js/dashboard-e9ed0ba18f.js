@@ -15497,6 +15497,8 @@ var dashboard = {
     idFormAddItem : '#formAddItem',
     idAlertAdding : '#alertAdding',
     idAlertAddingMessage : '#alertAddingMessage',
+    selectorElmShowProfile : '[data-name="showProfile"]',
+    selectorElmShowProfileReceiver : '[data-name="showProfileReceiver"]',
     init : function () {
         $('#example').DataTable({
             stateSave: true
@@ -15541,6 +15543,30 @@ var dashboard = {
                 dashboard.callbackSubmitFormAddSuccess
             );
         });
+
+        $(document).on('click', dashboard.selectorElmShowProfile, function(){
+            app.ajax(
+                $(this),
+                BASE_URL + '/user/' + $(this).attr('data-user-id'),
+                'GET',
+                {},
+                function(){},
+                function(response){ console.log(response); },
+                function(response) {
+                    $('#profile-name').html(response.data.name);
+                    $('#profile-email').html(response.data.email);
+                    $('#profile-telp').html(response.data.phone_number);
+                }
+            );
+        });
+
+        $(document).on('click', dashboard.selectorElmShowProfileReceiver, function(){
+            $('#profile-name').html($(this).attr('data-user-name'));
+            $('#profile-email').html('-');
+            $('#profile-telp').html($(this).attr('data-user-telp'));
+        });
+
+
     },
     callbackSubmitFormAddBeforeSend : function() {
         $(dashboard.idButtonAddItem).button('loading');

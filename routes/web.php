@@ -28,6 +28,10 @@ Route::group(['middleware' => ['\App\Http\Middleware\LoggedMiddleware']], functi
         return redirect()->route('home');
     })->name('logout');
 
+    Route::resource('user', 'UserController', ['only' => [
+        'show'
+    ]]);
+
     # dashboard
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 });

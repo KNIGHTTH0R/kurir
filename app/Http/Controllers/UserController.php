@@ -62,12 +62,21 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Client $client
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client, $id)
     {
-        //
+        $response = $client->get('users/' . $id);
+
+        return response(
+            $response,
+            $client->getStatusCode(),
+            [
+                'Content-Type' => 'application/json'
+            ]
+        );
     }
 
     /**
