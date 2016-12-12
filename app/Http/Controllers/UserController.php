@@ -19,6 +19,23 @@ class UserController extends Controller
         return view('login.index', $layoutManager->getData());
     }
 
+    public function register(LayoutManager $layoutManager)
+    {
+        return view('register.index', $layoutManager->getData());
+    }
+
+    public function doRegister(Request $request, Client $client)
+    {
+        $response = $client->post('users', $request->all());
+        return response(
+            $response,
+            $client->getStatusCode(),
+            [
+                'Content-Type' => 'application/json'
+            ]
+        );
+    }
+
     public function auth(Client $client, Request $request)
     {
         $response = $client->post('auth/token/password', [

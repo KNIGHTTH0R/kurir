@@ -16,6 +16,7 @@ Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('/masuk', ['as' => 'login', 'uses' => 'UserController@index']);
 Route::post('/masuk', ['as' => 'user.index', 'uses' => 'UserController@auth']);
 Route::get('/daftar', ['as' => 'register', 'uses' => 'UserController@register']);
+Route::post('/daftar', ['as' => 'do.register', 'uses' => 'UserController@doRegister']);
 Route::resource('user', 'UserController', ['only' => [
     'store'
 ]]);

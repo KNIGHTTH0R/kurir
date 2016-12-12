@@ -16,4 +16,7 @@
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit" id="signinSubmitButton" data-loading-text="Loading...">Sign in</button>
     </form>
+    <p class="text-center">
+        Belum mempunyai akun ? Silahkan daftar <a href="{{ route('register') }}">di sini</a>
+    </p>
 @endsection
