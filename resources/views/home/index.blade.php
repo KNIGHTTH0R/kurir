@@ -3,6 +3,7 @@
 @section('content')
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
+        <h1 class="text-center">P<small>lace</small>P<small>ickup</small>D<small>eliver</small></h1>
         <div class="clearfix">
             <div class="col-lg-4 col-md-12">
                 <h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Place</h4>
@@ -13,7 +14,7 @@
                 <p>Pickup nearest item by Kurir</p>
             </div>
             <div class="col-lg-4 col-md-12">
-                <h4><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Delivered</h4>
+                <h4><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Deliver</h4>
                 <p>Deliver customer item to receiver by kurir</p>
             </div>
         </div>
